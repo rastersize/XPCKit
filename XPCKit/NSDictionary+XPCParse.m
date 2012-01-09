@@ -32,11 +32,7 @@
         }
         return true;
     });
-#if __has_feature(objc_arc)
 	return [dict copy];
-#else
-    return [[dict copy] autorelease];
-#endif
 }
 
 -(xpc_object_t)newXPCObject{
