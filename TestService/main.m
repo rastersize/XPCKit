@@ -21,6 +21,11 @@
 #import <xpc/xpc.h>
 #import "XPCKit.h"
 
+@interface XPCConnection (Private)
+- (void)_sendLog:(NSString *)string;
+@end
+
+
 int main(int argc, const char *argv[])
 {
 	[XPCService runServiceWithConnectionHandler:^(XPCConnection *connection){

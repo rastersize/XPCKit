@@ -26,6 +26,7 @@
 
 @interface XPCConnection ()
 - (void)invokeErrorHandlerWithObject:(xpc_object_t)object connection:(XPCConnection *)connection;
+- (void)_sendLog:(NSString *)string;
 @end
 
 #pragma mark -
