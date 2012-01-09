@@ -1,4 +1,13 @@
+XPCKit
+======
+
 XPCKit is a Cocoa library for wrapping the XPC C APIs in a handy object-oriented model. It is merely meant as an object-oriented wrapper for the C library, and does not attempt to layer any additional semantics on top. It contains code to run both "clients" (which create connections to services) and "services" (which receive connections), although you can mix and match to write raw C code or Objective-C code between different clients and services.
+
+rastersize/XPCKit fork
+---------
+
+The primary difference between the original repository and this fork is that this fork, `rastersize/XPCKit`, requires automatic reference counting (ARC). Furthermore it adds support for errors, as [implemented]((https://github.com/rastersize/XPCKit/commit/91f8f1cddee64c79104d416f9058e6054a335b08)) by [tomaz](https://github.com/tomaz).
+
 
 Features
 ========
