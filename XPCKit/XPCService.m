@@ -23,9 +23,6 @@ static void XPCServiceConnectionHandler(xpc_connection_t handler);
 static void XPCServiceConnectionHandler(xpc_connection_t handler){
 	XPCConnection *connection = [[XPCConnection alloc] initWithConnection:handler];
 	[[NSNotificationCenter defaultCenter] postNotificationName:XPCConnectionReceivedNotification object:connection];
-#if !__has_feature(objc_arc)
-	[connection release];
-#endif
 }
 
 @implementation XPCService
@@ -69,15 +66,9 @@ static void XPCServiceConnectionHandler(xpc_connection_t handler){
 }
 
 +(void)runServiceWithConnectionHandler:(XPCConnectionHandler)connectionHandler{
-	XPCService *service = [[XPCService alloc] initWithConnectionHandler:connectionHandler];
+	XPCService *__unused service = [[XPCService alloc] initWithConnectionHandler:connectionHandler];
 	
 	[XPCService runService];
-	
-#if __has_feature(objc_arc)
-	(void)service;	// get rid of unused variable warning under ARC...
-#else
-	[service release];
-#endif
 }
 
 @end

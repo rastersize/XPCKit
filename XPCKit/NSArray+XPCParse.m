@@ -31,11 +31,7 @@
 		}
 		return true;
 	});
-#if __has_feature(objc_arc)
 	return [array copy];
-#else
-	return [[array copy] autorelease];
-#endif
 }
 
 -(xpc_object_t)newXPCObject{

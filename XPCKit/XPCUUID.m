@@ -32,9 +32,6 @@
 +(XPCUUID *)uuid{
 	CFUUIDRef uuidRef = CFUUIDCreate(NULL);
 	XPCUUID *uuid = [[self alloc] initWithUUIDRef:uuidRef];
-#if !__has_feature(objc_arc)
-	[uuid autorelease];
-#endif
 	CFRelease(uuidRef);
 	return uuid;
 }
@@ -64,9 +61,6 @@
 	
 	CFUUIDRef uuidRef = CFUUIDCreateFromUUIDBytes(NULL, uuidBytes);
 	XPCUUID *uuid = [[self alloc] initWithUUIDRef:uuidRef];
-#if !__has_feature(objc_arc)	
-	[uuid autorelease];
-#endif
 
 	CFRelease(uuidRef);
 	
@@ -104,11 +98,7 @@
 
 -(NSString *)string{
 	CFStringRef result = CFUUIDCreateString(NULL, self.uuidRef);
-#if __has_feature(objc_arc)
 	return (__bridge NSString *)result;
-#else
-	return [((NSString *)result) autorelease];
-#endif
 }
 
 -(NSString *)description{
@@ -138,10 +128,6 @@
 		CFRelease(_uuidRef);
 		_uuidRef = nil;
 	}
-
-#if !__has_feature(objc_arc)
-	[super dealloc];
-#endif
 }
 
 @end
