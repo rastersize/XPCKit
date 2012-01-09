@@ -81,7 +81,7 @@
 }
 
 -(void)receiveConnection:(xpc_connection_t)connection{
-    __block XPCConnection *this = self;
+    __weak XPCConnection *this = self;
     xpc_connection_set_event_handler(connection, ^(xpc_object_t object){
         if (object == XPC_ERROR_CONNECTION_INTERRUPTED){
 			if (this.errorHandler) [this invokeErrorHandlerWithObject:object connection:this];
