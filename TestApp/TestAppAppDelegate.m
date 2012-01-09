@@ -52,7 +52,7 @@
 			NSLog(@"We got a calculation result! %@", result);
 		}else if(data || fileHandle){
 			NSData *newData = [fileHandle readDataToEndOfFile];
-			NSLog(@"We got a file handle! Read %i bytes - %@", newData.length, fileHandle);
+			NSLog(@"We got a file handle! Read %lu bytes - %@", newData.length, fileHandle);
 		}else if(date){
 			NSLog(@"It is now %@", date);
 		}
@@ -65,9 +65,9 @@
 		if(data || fileHandle){
 			NSData *newData = [fileHandle readDataToEndOfFile];
 			if(newData){
-				NSLog(@"We got maybe mapped data! %i bytes - Equal? %@", data.length, ([newData isEqualToData:data] ? @"YES" : @"NO"));
+				NSLog(@"We got maybe mapped data! %lu bytes - Equal? %@", data.length, ([newData isEqualToData:data] ? @"YES" : @"NO"));
 			}
-				NSLog(@"We got a file handle! Read %i bytes - %@", newData.length, fileHandle);
+				NSLog(@"We got a file handle! Read %lu bytes - %@", newData.length, fileHandle);
 		}
     };
 	
@@ -88,7 +88,7 @@
 			nil];
 	NSData *loadedData = [[NSFileManager defaultManager] contentsAtPath:[readData objectForKey:@"path"]];
 	NSFileHandle *loadedHandle = [NSFileHandle  fileHandleForReadingAtPath:[readData objectForKey:@"path"]];
-	NSLog(@"Sandbox is %@ at path %@, got %i bytes and a file handle %@",((loadedData.length == 0 && loadedHandle == nil) ? @"working" : @"NOT working"), [readData objectForKey:@"path"], loadedData.length, loadedHandle);
+	NSLog(@"Sandbox is %@ at path %@, got %lu bytes and a file handle %@",((loadedData.length == 0 && loadedHandle == nil) ? @"working" : @"NOT working"), [readData objectForKey:@"path"], loadedData.length, loadedHandle);
 
     [mathConnection sendMessage:multiplyData];
 	[readConnection sendMessage:readData];

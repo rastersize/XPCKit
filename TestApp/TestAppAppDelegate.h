@@ -21,11 +21,10 @@
 #import <XPCKit/XPCKit.h>
 
 @interface TestAppAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
     XPCConnection *mathConnection;
     XPCConnection *readConnection;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (retain) IBOutlet NSWindow *window;
 
 @end
