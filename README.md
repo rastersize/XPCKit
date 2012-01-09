@@ -6,7 +6,7 @@ XPCKit is a Cocoa library for wrapping the XPC C APIs in a handy object-oriented
 rastersize/XPCKit fork
 ---------
 
-The primary difference between the original repository and this fork is that this fork, `rastersize/XPCKit`, requires automatic reference counting (ARC). Furthermore it adds support for errors, as [implemented]((https://github.com/rastersize/XPCKit/commit/91f8f1cddee64c79104d416f9058e6054a335b08)) by [tomaz](https://github.com/tomaz).
+The primary difference between the original repository and this fork is that this fork, `rastersize/XPCKit`, requires automatic reference counting (ARC). Furthermore it adds support for errors, as [implemented](https://github.com/rastersize/XPCKit/commit/91f8f1cddee64c79104d416f9058e6054a335b08) by [tomaz](https://github.com/tomaz).
 
 
 Features
