@@ -130,4 +130,10 @@
 	}
 }
 
+- (id)copyWithZone:(NSZone * __unused)zone
+{
+	// We are immutable as such we can just return self.
+	return self;
+}
+
 @end
