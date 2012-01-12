@@ -96,7 +96,7 @@
 	STAssertNotNil(object, @"Source object is nil");
 	
 	xpc_object_t xpcObject = [object newXPCObject];
-	STAssertNotNil(xpcObject, @"XPC Object is nil");
+	STAssertTrue(xpcObject != NULL, @"XPC Object is nil");
 	
 	id outObject = [NSObject objectWithXPCObject:xpcObject];
 	STAssertNotNil(outObject, @"XPC-converted object is nil");
