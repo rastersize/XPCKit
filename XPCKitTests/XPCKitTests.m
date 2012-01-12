@@ -58,6 +58,7 @@
 	[self testEqualityOfXPCRoundtripForObject:[NSArray array]];
 	[self testEqualityOfXPCRoundtripForObject:[NSArray arrayWithObject:@"foo"]];
 	[self testEqualityOfXPCRoundtripForObject:[NSArray arrayWithObjects:@"foo", @"bar", @"baz", nil]];
+	[self testEqualityOfXPCRoundtripForObject:[NSArray arrayWithObjects:@"foo", [NSNull null], nil]];
 }
 
 -(void)testDictionaries{
@@ -67,6 +68,10 @@
 											   @"bar", @"foo",
 											   @"42", @"baz",
 											   [NSNumber numberWithInt:42], @"theAnswerToEverything",
+											   nil]];
+	[self testEqualityOfXPCRoundtripForObject:[NSDictionary dictionaryWithObjectsAndKeys:
+											   @"bar", @"foo",
+											   [NSNull null], @"baz",
 											   nil]];
 }
 
@@ -106,7 +111,7 @@
 		BOOL smallEnough = (delta < 0.000001);
 		STAssertTrue(smallEnough, @"Date %@ was not equal to result %@", object, outObject);
 	}else{
-		STAssertEqualObjects(object, outObject, @"Object %@ was not equal to result %@", object, outObject);
+		STAssertTrue([object isEqual:outObject], @"Object %@ was not equal to result %@", object, outObject);
 	}
 	
 	xpc_release(xpcObject);
