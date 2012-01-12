@@ -21,6 +21,7 @@ Features
  - NSDate
  - NSNumber for bool, UInt64, Int64, and double types
  - NSFileHandle
+ - NSNull
  - UUIDs (via a custom XPCUUID class)
 - Block-based callbacks
 - Probably safe to use from multiple threads
