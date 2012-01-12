@@ -97,8 +97,8 @@
 }
 
 -(NSString *)string{
-	CFStringRef result = CFUUIDCreateString(NULL, self.uuidRef);
-	return (__bridge_transfer NSString *)result;
+	NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, self.uuidRef);
+	return uuidString;
 }
 
 -(NSString *)description{
