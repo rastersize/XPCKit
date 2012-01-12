@@ -42,6 +42,8 @@
 		object = [NSFileHandle fileHandleWithXPCObject:xpcObject];
     }else if(type == XPC_TYPE_BOOL || type == XPC_TYPE_UINT64 || type == XPC_TYPE_INT64 || type == XPC_TYPE_DOUBLE){
         object = [NSNumber numberWithXPCObject:xpcObject];
+	}else if(type == XPC_TYPE_NULL){
+		object = [NSNull null];
 	}
     return object;
 }

@@ -80,6 +80,10 @@
 		9CB818C514BE64A500A2D29C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CB818C314BE64A500A2D29C /* InfoPlist.strings */; };
 		9CB818C814BE64A500A2D29C /* XPCKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB818C714BE64A500A2D29C /* XPCKitTests.m */; };
 		9CB818CD14BE65BE00A2D29C /* libXPCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEDD02813DD485400D5AEC3 /* libXPCKit.a */; };
+		9CB818D214BE685400A2D29C /* NSNull+XPCParse.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CB818D014BE685400A2D29C /* NSNull+XPCParse.h */; };
+		9CB818D314BE685400A2D29C /* NSNull+XPCParse.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CB818D014BE685400A2D29C /* NSNull+XPCParse.h */; };
+		9CB818D414BE685400A2D29C /* NSNull+XPCParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB818D114BE685400A2D29C /* NSNull+XPCParse.m */; };
+		9CB818D514BE685400A2D29C /* NSNull+XPCParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB818D114BE685400A2D29C /* NSNull+XPCParse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +203,8 @@
 		9CB818C614BE64A500A2D29C /* XPCKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPCKitTests.h; sourceTree = "<group>"; };
 		9CB818C714BE64A500A2D29C /* XPCKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPCKitTests.m; sourceTree = "<group>"; };
 		9CB818C914BE64A500A2D29C /* XPCKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XPCKitTests-Prefix.pch"; sourceTree = "<group>"; };
+		9CB818D014BE685400A2D29C /* NSNull+XPCParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+XPCParse.h"; sourceTree = "<group>"; };
+		9CB818D114BE685400A2D29C /* NSNull+XPCParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+XPCParse.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +384,8 @@
 				1EF4D9E0141C38D0007BEEC0 /* NSFileHandle+XPCParse.m */,
 				1EB022A3141D9F3700BCC1FB /* NSDate+XPCParse.h */,
 				1EB022A4141D9F3700BCC1FB /* NSDate+XPCParse.m */,
+				9CB818D014BE685400A2D29C /* NSNull+XPCParse.h */,
+				9CB818D114BE685400A2D29C /* NSNull+XPCParse.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 				1E5F84A913E10DB700234F31 /* XPCService.h in Headers */,
 				1EF4D9E2141C38D0007BEEC0 /* NSFileHandle+XPCParse.h in Headers */,
 				1EB022A6141D9F3700BCC1FB /* NSDate+XPCParse.h in Headers */,
+				9CB818D314BE685400A2D29C /* NSNull+XPCParse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +462,7 @@
 				1EF4D9E1141C38D0007BEEC0 /* NSFileHandle+XPCParse.h in Headers */,
 				1EEDD0F113DEB97000D5AEC3 /* XPCUUID.h in Headers */,
 				1EB022A5141D9F3700BCC1FB /* NSDate+XPCParse.h in Headers */,
+				9CB818D214BE685400A2D29C /* NSNull+XPCParse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +663,7 @@
 				1EEDD08D13DDC34800D5AEC3 /* NSDictionary+XPCParse.m in Sources */,
 				1EF4D9E4141C38D0007BEEC0 /* NSFileHandle+XPCParse.m in Sources */,
 				1EB022A8141D9F3700BCC1FB /* NSDate+XPCParse.m in Sources */,
+				9CB818D514BE685400A2D29C /* NSNull+XPCParse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +699,7 @@
 				1EEDD0DF13DEA04900D5AEC3 /* NSDictionary+XPCParse.m in Sources */,
 				1EF4D9E3141C38D0007BEEC0 /* NSFileHandle+XPCParse.m in Sources */,
 				1EB022A7141D9F3700BCC1FB /* NSDate+XPCParse.m in Sources */,
+				9CB818D414BE685400A2D29C /* NSNull+XPCParse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
