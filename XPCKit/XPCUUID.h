@@ -19,12 +19,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XPCUUID : NSObject <NSCopying>
+@interface XPCUUID : NSObject <NSCopying, NSCoding>
 
-@property (nonatomic, readonly) CFUUIDRef uuidRef;
-@property (nonatomic, readonly) NSString *string;
+@property (nonatomic, readonly) CFUUIDRef UUIDRef;
+@property (nonatomic, readonly) NSString *UUIDString;
 
-+(XPCUUID *)uuid;
-+(XPCUUID *)uuidWithXPCObject:(xpc_object_t)xpc;
++(XPCUUID *)UUID;
++(XPCUUID *)UUIDWithXPCObject:(xpc_object_t)xpc;
+
+-(instancetype)initWithUUIDRef:(CFUUIDRef)uuidRef;
+-(instancetype)initWithUUIDString:(NSString *)uuidString;
+
+-(xpc_object_t)newXPCObject;
 
 @end

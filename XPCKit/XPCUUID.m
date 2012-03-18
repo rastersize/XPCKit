@@ -19,24 +19,19 @@
 
 #import "XPCUUID.h"
 
-@interface XPCUUID (Private)
-
-- (id)initWithUUIDRef:(CFUUIDRef)uuidRef;
-
-@end
 
 @implementation XPCUUID
 
-@synthesize uuidRef=_uuidRef;
+@synthesize UUIDRef = _uuidRef;
 
-+(XPCUUID *)uuid{
++(XPCUUID *)UUID{
 	CFUUIDRef uuidRef = CFUUIDCreate(NULL);
 	XPCUUID *uuid = [[self alloc] initWithUUIDRef:uuidRef];
 	CFRelease(uuidRef);
 	return uuid;
 }
 
-+(XPCUUID *)uuidWithXPCObject:(xpc_object_t)xpc{
++(XPCUUID *)UUIDWithXPCObject:(xpc_object_t)xpc{
 	const uint8_t *bytes = xpc_uuid_get_bytes(xpc);
 	
 	CFUUIDBytes uuidBytes;
@@ -67,8 +62,8 @@
 	return uuid;
 }
 
--(xpc_object_t)newXPCObject{
-	CFUUIDBytes uuidBytes = CFUUIDGetUUIDBytes(self.uuidRef);
+-(xpc_object_t)newXPCObject {
+	CFUUIDBytes uuidBytes = CFUUIDGetUUIDBytes(self.UUIDRef);
 	UInt8 *bytes = malloc(sizeof(UInt8) * 16);
 
 #define CopyByte(__idx) bytes[__idx] = uuidBytes.byte ## __idx
@@ -96,13 +91,13 @@
 	return xpcUUID;
 }
 
--(NSString *)string{
-	NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, self.uuidRef);
+-(NSString *)UUIDString{
+	NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, self.UUIDRef);
 	return uuidString;
 }
 
 -(NSString *)description{
-	return [NSString stringWithFormat:@"<%@ %@>",[self class],self.string];
+	return [NSString stringWithFormat:@"<%@ %@>",[self class],self.UUIDString];
 }
 
 -(BOOL)isEqual:(id)object{
@@ -113,14 +108,21 @@
 	return [[self description] hash];
 }
 
-- (id)initWithUUIDRef:(CFUUIDRef)uuidRef{
+-(instancetype)initWithUUIDRef:(CFUUIDRef)uuidRef{
     self = [super init];
     if (self) {
-        // Initialization code here.
 		_uuidRef = CFRetain(uuidRef);
     }
     
     return self;
+}
+
+-(instancetype)initWithUUIDString:(NSString *)uuidString{
+	CFUUIDRef uuidRef = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)uuidString);
+	self = [self initWithUUIDRef:uuidRef];
+	CFRelease(uuidRef);
+	
+	return self;
 }
 
 -(void)dealloc{
@@ -134,6 +136,16 @@
 {
 	// We are immutable as such we can just return self.
 	return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+	NSString *uuidString = [aDecoder decodeObjectForKey:@"XPCUUIDString"];
+	self = [self initWithUUIDString:uuidString];
+	return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+	[aCoder encodeObject:self.UUIDString forKey:@"XPCUUIDString"];
 }
 
 @end
