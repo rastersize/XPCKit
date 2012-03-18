@@ -88,13 +88,13 @@
 
 -(void)testUUID{
 	// UUIDs are unique, so test a few at random
-	STAssertFalse([[XPCUUID uuid] isEqual:[XPCUUID uuid]], @"Two identical UUIDs");
-	STAssertFalse([[XPCUUID uuid] isEqual:[XPCUUID uuid]], @"Two identical UUIDs");
-	STAssertFalse([[XPCUUID uuid] isEqual:[XPCUUID uuid]], @"Two identical UUIDs");
+	STAssertFalse([[XPCUUID UUID] isEqual:[XPCUUID UUID]], @"Two identical UUIDs");
+	STAssertFalse([[XPCUUID UUID] isEqual:[XPCUUID UUID]], @"Two identical UUIDs");
+	STAssertFalse([[XPCUUID UUID] isEqual:[XPCUUID UUID]], @"Two identical UUIDs");
 	
-	[self testEqualityOfXPCRoundtripForObject:[XPCUUID uuid]];
-	[self testEqualityOfXPCRoundtripForObject:[XPCUUID uuid]];
-	[self testEqualityOfXPCRoundtripForObject:[XPCUUID uuid]];
+	[self testEqualityOfXPCRoundtripForObject:[XPCUUID UUID]];
+	[self testEqualityOfXPCRoundtripForObject:[XPCUUID UUID]];
+	[self testEqualityOfXPCRoundtripForObject:[XPCUUID UUID]];
 }
 
 -(void)testEqualityOfXPCRoundtripForObject:(id)object{
