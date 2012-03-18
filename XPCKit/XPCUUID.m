@@ -121,7 +121,7 @@
 	CFUUIDRef uuidRef = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)uuidString);
 	self = [self initWithUUIDRef:uuidRef];
 	CFRelease(uuidRef);
-
+	
 	return self;
 }
 
@@ -136,6 +136,16 @@
 {
 	// We are immutable as such we can just return self.
 	return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+	NSString *uuidString = [aDecoder decodeObjectForKey:@"XPCUUIDString"];
+	self = [self initWithUUIDString:uuidString];
+	return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+	[aCoder encodeObject:self.UUIDString forKey:@"XPCUUIDString"];
 }
 
 @end
