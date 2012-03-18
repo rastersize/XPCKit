@@ -117,6 +117,14 @@
     return self;
 }
 
+-(instancetype)initWithUUIDString:(NSString *)uuidString{
+	CFUUIDRef uuidRef = CFUUIDCreateFromString(NULL, (__bridge CFStringRef)uuidString);
+	self = [self initWithUUIDRef:uuidRef];
+	CFRelease(uuidRef);
+
+	return self;
+}
+
 -(void)dealloc{
 	if(_uuidRef){
 		CFRelease(_uuidRef);

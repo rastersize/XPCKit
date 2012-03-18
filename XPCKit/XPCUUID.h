@@ -28,6 +28,7 @@
 +(XPCUUID *)UUIDWithXPCObject:(xpc_object_t)xpc;
 
 -(instancetype)initWithUUIDRef:(CFUUIDRef)uuidRef;
+-(instancetype)initWithUUIDString:(NSString *)uuidString;
 
 -(xpc_object_t)newXPCObject;
 
